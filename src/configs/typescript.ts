@@ -46,6 +46,7 @@ export const typescriptCore = tseslint.config({
       { allowBitwiseExpressions: true },
     ],
 
+    'no-duplicate-imports': 'off',
     'no-restricted-syntax': [
       'error',
       ...restrictedSyntaxJs,

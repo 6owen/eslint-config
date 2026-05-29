@@ -12,7 +12,7 @@ export const imports = (): Config[] => [
       'antfu/import-dedupe': 'error',
       'import/first': 'error',
       'import/no-default-export': 'error',
-      'import/no-duplicates': 'error',
+      'import/no-duplicates': ['error', { 'prefer-inline': true }],
       'import/no-mutable-exports': 'error',
       'import/no-named-default': 'error',
       'import/no-self-import': 'error',
