@@ -27,6 +27,20 @@ always-auth=true
     )
 
     try {
+      try {
+        execFileSync('npm', ['whoami'], {
+          stdio: 'pipe',
+          env: {
+            ...process.env,
+            NPM_CONFIG_USERCONFIG: userConfigPath,
+          },
+        })
+      } catch {
+        throw new Error(
+          'NPM_ACCESS_TOKEN is invalid, expired, or revoked. Update the token in .env and retry `npm run release`.',
+        )
+      }
+
       execFileSync('npm', ['publish', '--access', 'public'], {
         stdio: 'inherit',
         env: {
